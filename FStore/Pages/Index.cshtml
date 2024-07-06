@@ -1,0 +1,23 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+    var memberName = HttpContext.Session.GetString("Email");
+}
+
+<div class="text-center">
+    @if (!string.IsNullOrEmpty(memberName))
+    {
+        <h1 class="display-4">Welcome, + @memberName</h1>
+        <a asp-page="/ProductPage/Index" style="padding: 0px 10px 0px">Product Manager</a>
+        <a asp-page="/OrderPage/Index">OrderManager</a>
+    }
+    else
+    {
+        <a asp-page="/LoginPage" style="padding: 0px 10px 0px ">Login</a>
+        <a asp-page="/RegisterPage">Register</a>
+        
+    }
+
+    
+</div>
